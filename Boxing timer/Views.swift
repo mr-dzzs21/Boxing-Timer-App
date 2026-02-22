@@ -172,7 +172,7 @@ struct IntervalTimerView: View {
                 Circle().trim(from: 0, to: vm.progress).stroke(Color.primary, style: StrokeStyle(lineWidth: 15, lineCap: .round))
                     .frame(width: 280, height: 280).rotationEffect(.degrees(-90))
                     .animation(.linear(duration: 0.5), value: vm.progress)
-                Text(vm.timeString).font(.system(size: 100, weight: .bold, design: .rounded)).foregroundColor(.primary)
+                Text(vm.timeString).font(.system(size: 90, weight: .bold, design: .rounded)).foregroundColor(.primary)
             }
 
             Spacer()
