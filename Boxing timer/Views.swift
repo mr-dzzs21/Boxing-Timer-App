@@ -490,7 +490,7 @@ struct PrivacyPolicyView: View {
                     )
                 }
 
-                Link(destination: URL(string: "https://mr-dzzis21.github.io/Boxing-Timer-App/privacy-policy.html")!) {
+                Link(destination: URL(string: "https://mr-dzzs21.github.io/Boxing-Timer-App/privacy-policy.html")!) {
                     HStack {
                         Image(systemName: "globe")
                         Text("Vollständige Version im Browser öffnen")
