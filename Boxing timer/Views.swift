@@ -490,11 +490,22 @@ struct PrivacyPolicyView: View {
                     )
                 }
 
+                Link(destination: URL(string: "https://mr-dzzis21.github.io/Boxing-Timer-App/privacy-policy.html")!) {
+                    HStack {
+                        Image(systemName: "globe")
+                        Text("Vollständige Version im Browser öffnen")
+                    }
+                    .font(.subheadline)
+                    .foregroundColor(.blue)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                }
+                .padding(.top, 4)
+
                 Text("© 2026 Diyar Kaymaz")
                     .font(.caption)
                     .foregroundColor(.secondary)
                     .frame(maxWidth: .infinity, alignment: .center)
-                    .padding(.top, 10)
+                    .padding(.top, 6)
             }
             .padding()
         }
