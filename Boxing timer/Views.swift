@@ -444,7 +444,7 @@ struct PrivacyPolicyView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
 
-                Text("🥊 Boxing Timer")
+                Text("🥊 Boxing Interval Timer")
                     .font(.title.bold())
                 Text("Datenschutzerklärung · Februar 2026")
                     .font(.caption)
@@ -486,7 +486,7 @@ struct PrivacyPolicyView: View {
                     PolicySection(
                         icon: "envelope",
                         title: "Kontakt",
-                        text: "diyar.kaymaz@icloud.com"
+                        text: "box.timer.app@gmail.com"
                     )
                 }
 

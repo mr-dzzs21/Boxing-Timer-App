@@ -18,7 +18,6 @@ struct TodoView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
-
                 // Eingabezeile
                 HStack(spacing: 12) {
                     TextField(lang.t.todoPlaceholder, text: $newTitle)
