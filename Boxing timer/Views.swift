@@ -198,15 +198,15 @@ struct IntervalTimerView: View {
             }
             .foregroundColor(.primary)
 
-            if vm.phase == .finished {
-                Button(lang.t.saveWorkout) {
-                    vm.saveWorkoutToHistory(context: context)
-                    showSaved = true
-                    promptManager.recordWorkoutCompleted()
-                }
-                .font(.headline).foregroundColor(.white).frame(maxWidth: .infinity).padding()
-                .background(Color.blue).cornerRadius(12).padding(.horizontal)
+            Button(lang.t.saveWorkout) {
+                vm.saveWorkoutToHistory(context: context)
+                showSaved = true
+                promptManager.recordWorkoutCompleted()
             }
+            .font(.headline).foregroundColor(.white).frame(maxWidth: .infinity).padding()
+            .background(Color.blue).cornerRadius(12).padding(.horizontal)
+            .opacity(vm.phase == .finished ? 1 : 0)
+            .disabled(vm.phase != .finished)
 
             Spacer()
         }
