@@ -175,7 +175,7 @@ struct IntervalTimerView: View {
                 Circle().trim(from: 0, to: vm.progress).stroke(Color.primary, style: StrokeStyle(lineWidth: 15, lineCap: .round))
                     .frame(width: 320, height: 320).rotationEffect(.degrees(-90))
                     .animation(.linear(duration: 0.5), value: vm.progress)
-                Text(vm.timeString).font(.system(size: 95, weight: .bold, design: .rounded)).foregroundColor(.primary)
+                Text(vm.timeString).font(.system(size: 102, weight: .bold, design: .rounded)).foregroundColor(.primary)
             }
 
             Spacer()
@@ -777,7 +777,7 @@ struct SettingsView: View {
                         }
                     }
                     // ⚠️ App Store ID hier eintragen nach Veröffentlichung: z.B. "1234567890"
-                    Link(destination: URL(string: "https://apps.apple.com/app/id0000000000?action=write-review")!) {
+                    Link(destination: URL(string: "https://apps.apple.com/app/id6759615674?action=write-review")!) {
                         HStack {
                             Image(systemName: "star.fill")
                                 .foregroundColor(.yellow)
