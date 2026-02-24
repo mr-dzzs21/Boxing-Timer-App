@@ -40,6 +40,22 @@ struct IntervalTimerView: View {
             .navigationBarTitleDisplayMode(.inline)
             .onAppear { vm.settings = settings; vm.language = lang.current }
             .onChange(of: lang.current) { _, new in vm.language = new }
+            .toolbar {
+                if !showConfig {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button {
+                            vm.reset()
+                            showConfig = true
+                        } label: {
+                            HStack(spacing: 4) {
+                                Image(systemName: "chevron.left")
+                                Text(lang.t.back)
+                            }
+                        }
+                        .foregroundColor(.primary)
+                    }
+                }
+            }
         }
     }
 
@@ -149,21 +165,6 @@ struct IntervalTimerView: View {
 
     var timerView: some View {
         VStack(spacing: 30) {
-            HStack {
-                Button {
-                    vm.reset()
-                    showConfig = true
-                } label: {
-                    HStack {
-                        Image(systemName: "chevron.left")
-                        Text(lang.t.back)
-                    }
-                    .padding().background(Color.black.opacity(0.2)).cornerRadius(10)
-                }
-                .foregroundColor(.primary)
-                Spacer()
-            }
-
             Spacer()
 
             Text(vm.phaseText)
