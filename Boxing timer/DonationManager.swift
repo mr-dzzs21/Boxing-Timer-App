@@ -5,7 +5,7 @@
 //  Verwaltet In-App Käufe für den Tip Jar (Donation).
 //  Produkt-IDs müssen in App Store Connect identisch angelegt werden.
 //
-
+ 
 import StoreKit
 import Foundation
 import SwiftUI
@@ -17,7 +17,20 @@ class DonationManager: ObservableObject {
 
     static let shared = DonationManager()
 
+    private var transactionUpdatesTask: Task<Void, Never>?
+
+    init() {
+        transactionUpdatesTask = Task {
+            for await result in Transaction.updates {
+                if case .verified(let transaction) = result {
+                    await transaction.finish()
+                }
+            }
+        }
+    }
+
     @Published var products: [Product] = []
+    @Published var isLoading = false
     @Published var isPurchasing = false
     @Published var purchaseSuccess = false
     @Published var errorMessage: String?
@@ -32,6 +45,8 @@ class DonationManager: ObservableObject {
 
     // Produkte vom App Store laden
     func loadProducts() async {
+        isLoading = true
+        defer { isLoading = false }
         do {
             let loaded = try await Product.products(for: productIDs)
             products = loaded.sorted { $0.price < $1.price }

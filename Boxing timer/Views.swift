@@ -60,90 +60,99 @@ struct IntervalTimerView: View {
     }
 
     var configView: some View {
-        ScrollView {
-            VStack(spacing: 20) {
-                Text(lang.t.chooseTraining)
-                    .font(.title2).fontWeight(.bold).padding(.top, 40)
+        VStack(spacing: 0) {
+            ScrollView {
+                VStack(spacing: 20) {
+                    Text(lang.t.chooseTraining)
+                        .font(.title2).fontWeight(.bold).padding(.top, 40)
 
-                Picker("Modus", selection: $useCustom) {
-                    Text(lang.t.preset).tag(false)
-                    Text(lang.t.customSetting).tag(true)
-                }
-                .pickerStyle(.segmented)
-
-                if useCustom {
-                    VStack(spacing: 0) {
-                        stepperRow(label: lang.t.warmUp, value: $customWarmup, range: 0...600, step: 5, unit: "s")
-                        Divider()
-                        stepperRow(label: lang.t.intervals, value: $customIntervals, range: 1...50, step: 1, unit: "x")
-                        Divider()
-                        stepperRow(label: lang.t.work, value: $customWork, range: 5...600, step: 1, unit: "s")
-                        Divider()
-                        stepperRow(label: lang.t.rest, value: $customRest, range: 0...600, step: 1, unit: "s")
+                    Picker("Modus", selection: $useCustom) {
+                        Text(lang.t.preset).tag(false)
+                        Text(lang.t.customSetting).tag(true)
                     }
-                    .background(Color.black.opacity(0.1))
-                    .cornerRadius(12)
+                    .pickerStyle(.segmented)
 
-                    VStack(alignment: .leading, spacing: 6) {
-                        Text(lang.t.yourTraining).font(.headline)
-                        Text("\(lang.t.warmUp): \(customWarmup)s")
-                        Text("\(lang.t.intervals): \(customIntervals)x (\(customWork)s \(lang.t.work) / \(customRest)s \(lang.t.rest))")
-                        Text("\(lang.t.totalApprox) \(totalMinutes) min")
-                    }
-                    .padding().frame(maxWidth: .infinity, alignment: .leading)
-                    .background(Color.black.opacity(0.1)).cornerRadius(12)
-
-                } else {
-                    VStack(alignment: .leading, spacing: 12) {
-                        Text(lang.t.device).font(.headline)
-                        Picker(lang.t.device, selection: $selectedDevice) {
-                            ForEach(IntervalDevice.allCases, id: \.self) { d in
-                                Text(d.localizedName(lang.t)).tag(d)
-                            }
-                        }
-                        .pickerStyle(.segmented)
-                    }
-                    .padding().background(Color.black.opacity(0.1)).cornerRadius(12)
-
-                    VStack(alignment: .leading, spacing: 12) {
-                        Text(lang.t.level).font(.headline)
-                        Picker(lang.t.level, selection: $selectedLevel) {
-                            ForEach(IntervalLevel.allCases, id: \.self) { l in
-                                Text(l.localizedName(lang.t)).tag(l)
-                            }
-                        }
-                        .pickerStyle(.segmented)
-                    }
-                    .padding().background(Color.black.opacity(0.1)).cornerRadius(12)
-
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text(lang.t.yourTraining).font(.headline)
-                        let w = IntervalWorkout.workout(for: selectedDevice, level: selectedLevel)
-                        Text("\(lang.t.warmUp): \(w.warmupSeconds / 60) min")
-                        Text("\(lang.t.intervals): \(w.intervals)x (\(w.workSeconds)s \(lang.t.work) / \(w.restSeconds)s \(lang.t.rest))")
-                        Text("\(lang.t.coolDown): \(w.cooldownSeconds / 60) min")
-                    }
-                    .padding().frame(maxWidth: .infinity, alignment: .leading)
-                    .background(Color.black.opacity(0.1)).cornerRadius(12)
-                }
-
-                Button(lang.t.startTraining) {
-                    let w: IntervalWorkout
                     if useCustom {
-                        w = IntervalWorkout(device: .bagWork, level: .intermediate,
-                            warmupSeconds: customWarmup, intervals: customIntervals,
-                            workSeconds: customWork, restSeconds: customRest, cooldownSeconds: 0)
-                    } else {
-                        w = IntervalWorkout.workout(for: selectedDevice, level: selectedLevel)
-                    }
-                    vm.updateWorkout(w)
-                    showConfig = false
-                }
-                .font(.headline).foregroundColor(.white).frame(maxWidth: .infinity).padding()
-                .background(Color.blue).cornerRadius(12)
+                        VStack(spacing: 0) {
+                            stepperRow(label: lang.t.warmUp, value: $customWarmup, range: 0...600, step: 5, unit: "s")
+                            Divider()
+                            stepperRow(label: lang.t.intervals, value: $customIntervals, range: 1...50, step: 1, unit: "x")
+                            Divider()
+                            stepperRow(label: lang.t.work, value: $customWork, range: 5...600, step: 1, unit: "s")
+                            Divider()
+                            stepperRow(label: lang.t.rest, value: $customRest, range: 0...600, step: 1, unit: "s")
+                        }
+                        .background(Color.black.opacity(0.1))
+                        .cornerRadius(12)
 
-                Spacer()
+                        VStack(alignment: .leading, spacing: 6) {
+                            Text(lang.t.yourTraining).font(.headline)
+                            Text("\(lang.t.warmUp): \(customWarmup)s")
+                            Text("\(lang.t.intervals): \(customIntervals)x (\(customWork)s \(lang.t.work) / \(customRest)s \(lang.t.rest))")
+                            Text("\(lang.t.totalApprox) \(totalMinutes) min")
+                        }
+                        .padding().frame(maxWidth: .infinity, alignment: .leading)
+                        .background(Color.black.opacity(0.1)).cornerRadius(12)
+
+                    } else {
+                        VStack(alignment: .leading, spacing: 12) {
+                            Text(lang.t.device).font(.headline)
+                            Picker(lang.t.device, selection: $selectedDevice) {
+                                ForEach(IntervalDevice.allCases, id: \.self) { d in
+                                    Text(d.localizedName(lang.t)).tag(d)
+                                }
+                            }
+                            .pickerStyle(.segmented)
+                        }
+                        .padding().background(Color.black.opacity(0.1)).cornerRadius(12)
+
+                        VStack(alignment: .leading, spacing: 12) {
+                            Text(lang.t.level).font(.headline)
+                            Picker(lang.t.level, selection: $selectedLevel) {
+                                ForEach(IntervalLevel.allCases, id: \.self) { l in
+                                    Text(l.localizedName(lang.t)).tag(l)
+                                }
+                            }
+                            .pickerStyle(.segmented)
+                        }
+                        .padding().background(Color.black.opacity(0.1)).cornerRadius(12)
+
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text(lang.t.yourTraining).font(.headline)
+                            let w = IntervalWorkout.workout(for: selectedDevice, level: selectedLevel)
+                            Text("\(lang.t.warmUp): \(w.warmupSeconds / 60) min")
+                            Text("\(lang.t.intervals): \(w.intervals)x (\(w.workSeconds)s \(lang.t.work) / \(w.restSeconds)s \(lang.t.rest))")
+                            Text("\(lang.t.coolDown): \(w.cooldownSeconds / 60) min")
+                        }
+                        .padding().frame(maxWidth: .infinity, alignment: .leading)
+                        .background(Color.black.opacity(0.1)).cornerRadius(12)
+                    }
+                }
+                .padding()
             }
+
+            Button {
+                let w: IntervalWorkout
+                if useCustom {
+                    w = IntervalWorkout(device: .bagWork, level: .intermediate,
+                        warmupSeconds: customWarmup, intervals: customIntervals,
+                        workSeconds: customWork, restSeconds: customRest, cooldownSeconds: 0)
+                } else {
+                    w = IntervalWorkout.workout(for: selectedDevice, level: selectedLevel)
+                }
+                vm.updateWorkout(w)
+                showConfig = false
+            } label: {
+                Text(lang.t.startTraining)
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(12)
+            }
+            .buttonStyle(.plain)
+            .contentShape(Rectangle())
             .padding()
         }
     }
@@ -497,13 +506,15 @@ struct DonationPromptView: View {
 
 // MARK: - Privacy Policy View
 struct PrivacyPolicyView: View {
+    @EnvironmentObject var lang: LanguageManager
+
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
 
-                Text("🥊 Boxing Interval Timer")
+                Text("🥊 Box Interval Timer")
                     .font(.title.bold())
-                Text("Datenschutzerklärung · Februar 2026")
+                Text(lang.t.privacyDate)
                     .font(.caption)
                     .foregroundColor(.secondary)
 
@@ -512,7 +523,7 @@ struct PrivacyPolicyView: View {
                     Image(systemName: "checkmark.shield.fill")
                         .foregroundColor(.green)
                         .font(.title2)
-                    Text("Diese App speichert keine persönlichen Daten, sendet keine Daten an Server und verwendet keine Tracker oder Werbung.")
+                    Text(lang.t.privacySummary)
                         .font(.subheadline)
                 }
                 .padding()
@@ -522,23 +533,23 @@ struct PrivacyPolicyView: View {
                 Group {
                     PolicySection(
                         icon: "internaldrive",
-                        title: "Welche Daten werden gespeichert?",
-                        text: "Nur lokal auf deinem Gerät:\n• Trainingshistorie (Datum, Dauer, Sportart)\n• App-Einstellungen (Sprache, Sound, Vibration)\n\nDiese Daten verlassen dein Gerät niemals."
+                        title: lang.t.privacyS1Title,
+                        text: lang.t.privacyS1Text
                     )
                     PolicySection(
                         icon: "wifi.slash",
-                        title: "Werden Daten übertragen?",
-                        text: "Nein. Die App sendet keine Daten an Server, verwendet keine Analyse-Tools und benötigt keine Internetverbindung."
+                        title: lang.t.privacyS2Title,
+                        text: lang.t.privacyS2Text
                     )
                     PolicySection(
                         icon: "creditcard",
-                        title: "In-App Käufe",
-                        text: "Optionale Donations werden vollständig über Apple In-App Purchase abgewickelt. Wir haben keinen Zugriff auf Zahlungsdaten."
+                        title: lang.t.privacyS3Title,
+                        text: lang.t.privacyS3Text
                     )
                     PolicySection(
                         icon: "bell",
-                        title: "Berechtigungen",
-                        text: "Nur Live Activity (Timer auf dem Sperrbildschirm, optional). Keine anderen Berechtigungen."
+                        title: lang.t.privacyS4Title,
+                        text: lang.t.privacyS4Text
                     )
                     PolicySection(
                         icon: "envelope",
@@ -547,10 +558,10 @@ struct PrivacyPolicyView: View {
                     )
                 }
 
-                Link(destination: URL(string: "https://mr-dzzs21.github.io/Boxing-Timer-App/privacy-policy.html")!) {
+                Link(destination: URL(string: "https://mr-dzzs21.github.io/Box-Interval-Timer/privacy-policy.html")!) {
                     HStack {
                         Image(systemName: "globe")
-                        Text("Vollständige Version im Browser öffnen")
+                        Text(lang.t.privacyOpenBrowser)
                     }
                     .font(.subheadline)
                     .foregroundColor(.blue)
@@ -566,7 +577,7 @@ struct PrivacyPolicyView: View {
             }
             .padding()
         }
-        .navigationTitle("Datenschutzerklärung")
+        .navigationTitle(lang.t.privacyNavTitle)
         .navigationBarTitleDisplayMode(.inline)
     }
 }
@@ -623,14 +634,29 @@ struct DonationView: View {
                     .padding(.top, 20)
 
                     // Produkte
-                    if manager.products.isEmpty {
+                    if manager.isLoading {
                         VStack(spacing: 16) {
                             ProgressView()
                                 .scaleEffect(1.5)
-                            Text("Lädt...")
+                            Text(lang.t.loading)
                                 .foregroundColor(.secondary)
                         }
                         .padding(.top, 20)
+                    } else if manager.products.isEmpty {
+                        VStack(spacing: 16) {
+                            Image(systemName: "wifi.slash")
+                                .font(.system(size: 40))
+                                .foregroundColor(.secondary)
+                            Text(lang.t.donationUnavailable)
+                                .foregroundColor(.secondary)
+                                .multilineTextAlignment(.center)
+                            Button(lang.t.retry) {
+                                Task { await manager.loadProducts() }
+                            }
+                            .buttonStyle(.borderedProminent)
+                        }
+                        .padding(.top, 20)
+                        .padding(.horizontal)
                     } else {
                         VStack(spacing: 14) {
                             ForEach(manager.products, id: \.id) { product in

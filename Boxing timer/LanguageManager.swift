@@ -216,6 +216,23 @@ struct Translations {
     let donationSubtitle: String
     let donationSupport: String
     let donationThankYou: String
+    let donationUnavailable: String
+    let loading: String
+    let retry: String
+
+    // Privacy Policy
+    let privacyNavTitle: String
+    let privacyDate: String
+    let privacySummary: String
+    let privacyS1Title: String
+    let privacyS1Text: String
+    let privacyS2Title: String
+    let privacyS2Text: String
+    let privacyS3Title: String
+    let privacyS3Text: String
+    let privacyS4Title: String
+    let privacyS4Text: String
+    let privacyOpenBrowser: String
 
     // Übersetzt den internen Preset-Namen in die gewählte Sprache
     // Für Fight Timer: nur Boxen und Ringen ändern sich – MMA, K1, Judo etc. bleiben gleich
@@ -288,7 +305,21 @@ struct Translations {
             todoEmpty: "Keine Todos", todoEmptyDesc: "Füge dein erstes Todo hinzu",
             donationTitle: "Entwickler unterstützen",
             donationSubtitle: "Falls dir die App gefällt, freue ich mich über eine kleine Unterstützung 🙏",
-            donationSupport: "Unterstützen", donationThankYou: "Vielen Dank! 🙏"
+            donationSupport: "Unterstützen", donationThankYou: "Vielen Dank! 🙏",
+            donationUnavailable: "Produkte nicht verfügbar.\nBitte Internetverbindung prüfen.",
+            loading: "Lädt...", retry: "Erneut versuchen",
+            privacyNavTitle: "Datenschutzerklärung",
+            privacyDate: "Datenschutzerklärung · Februar 2026",
+            privacySummary: "Diese App speichert keine persönlichen Daten, sendet keine Daten an Server und verwendet keine Tracker oder Werbung.",
+            privacyS1Title: "Welche Daten werden gespeichert?",
+            privacyS1Text: "Nur lokal auf deinem Gerät:\n• Trainingshistorie (Datum, Dauer, Sportart)\n• App-Einstellungen (Sprache, Sound, Vibration)\n\nDiese Daten verlassen dein Gerät niemals.",
+            privacyS2Title: "Werden Daten übertragen?",
+            privacyS2Text: "Nein. Die App sendet keine Daten an Server, verwendet keine Analyse-Tools und benötigt keine Internetverbindung.",
+            privacyS3Title: "In-App Käufe",
+            privacyS3Text: "Optionale Donations werden vollständig über Apple In-App Purchase abgewickelt. Wir haben keinen Zugriff auf Zahlungsdaten.",
+            privacyS4Title: "Berechtigungen",
+            privacyS4Text: "Nur Live Activity (Timer auf dem Sperrbildschirm, optional). Keine anderen Berechtigungen.",
+            privacyOpenBrowser: "Vollständige Version im Browser öffnen"
         ),
 
         .english: Translations(
@@ -336,7 +367,21 @@ struct Translations {
             todoEmpty: "No Todos", todoEmptyDesc: "Add your first todo",
             donationTitle: "Support the Developer",
             donationSubtitle: "If you enjoy the app, I'd appreciate your support 🙏",
-            donationSupport: "Support", donationThankYou: "Thank you so much! 🙏"
+            donationSupport: "Support", donationThankYou: "Thank you so much! 🙏",
+            donationUnavailable: "Products not available.\nPlease check your internet connection.",
+            loading: "Loading...", retry: "Try Again",
+            privacyNavTitle: "Privacy Policy",
+            privacyDate: "Privacy Policy · February 2026",
+            privacySummary: "This app stores no personal data, sends no data to servers, and uses no trackers or advertising.",
+            privacyS1Title: "What data is stored?",
+            privacyS1Text: "Only locally on your device:\n• Workout history (date, duration, sport)\n• App settings (language, sound, vibration)\n\nThis data never leaves your device.",
+            privacyS2Title: "Is data transmitted?",
+            privacyS2Text: "No. The app sends no data to servers, uses no analytics tools, and requires no internet connection.",
+            privacyS3Title: "In-App Purchases",
+            privacyS3Text: "Optional donations are handled entirely through Apple In-App Purchase. We have no access to payment data.",
+            privacyS4Title: "Permissions",
+            privacyS4Text: "Only Live Activity (timer on the lock screen, optional). No other permissions.",
+            privacyOpenBrowser: "Open full version in browser"
         ),
 
         .arabic: Translations(
@@ -384,7 +429,21 @@ struct Translations {
             todoEmpty: "لا توجد مهام", todoEmptyDesc: "أضف مهمتك الأولى",
             donationTitle: "دعم المطور",
             donationSubtitle: "إذا أعجبك التطبيق، يسعدني دعمك 🙏",
-            donationSupport: "دعم", donationThankYou: "شكراً جزيلاً! 🙏"
+            donationSupport: "دعم", donationThankYou: "شكراً جزيلاً! 🙏",
+            donationUnavailable: "المنتجات غير متاحة.\nيرجى التحقق من الاتصال بالإنترنت.",
+            loading: "جاري التحميل...", retry: "حاول مجدداً",
+            privacyNavTitle: "سياسة الخصوصية",
+            privacyDate: "سياسة الخصوصية · فبراير 2026",
+            privacySummary: "لا تخزّن هذه التطبيقة أي بيانات شخصية، ولا ترسل بيانات إلى خوادم، ولا تستخدم أدوات تتبع أو إعلانات.",
+            privacyS1Title: "ما البيانات التي يتم تخزينها؟",
+            privacyS1Text: "محلياً على جهازك فقط:\n• سجل التمارين (التاريخ، المدة، الرياضة)\n• إعدادات التطبيق (اللغة، الصوت، الاهتزاز)\n\nهذه البيانات لا تغادر جهازك أبداً.",
+            privacyS2Title: "هل يتم نقل البيانات؟",
+            privacyS2Text: "لا. لا ترسل التطبيقة بيانات إلى خوادم، ولا تستخدم أدوات تحليل، ولا تحتاج إلى اتصال بالإنترنت.",
+            privacyS3Title: "المشتريات داخل التطبيق",
+            privacyS3Text: "تُعالَج التبرعات الاختيارية بالكامل عبر نظام Apple للشراء داخل التطبيق. ليس لدينا أي وصول إلى بيانات الدفع.",
+            privacyS4Title: "الأذونات",
+            privacyS4Text: "فقط Live Activity (المؤقت على شاشة القفل، اختياري). لا توجد أذونات أخرى.",
+            privacyOpenBrowser: "فتح النسخة الكاملة في المتصفح"
         ),
 
         .spanish: Translations(
@@ -432,7 +491,21 @@ struct Translations {
             todoEmpty: "Sin tareas", todoEmptyDesc: "Añade tu primera tarea",
             donationTitle: "Apoya al Desarrollador",
             donationSubtitle: "Si disfrutas la app, agradeceré tu apoyo 🙏",
-            donationSupport: "Apoyar", donationThankYou: "¡Muchas gracias! 🙏"
+            donationSupport: "Apoyar", donationThankYou: "¡Muchas gracias! 🙏",
+            donationUnavailable: "Productos no disponibles.\nComprueba tu conexión a internet.",
+            loading: "Cargando...", retry: "Reintentar",
+            privacyNavTitle: "Política de privacidad",
+            privacyDate: "Política de privacidad · Febrero 2026",
+            privacySummary: "Esta app no almacena datos personales, no envía datos a servidores y no utiliza rastreadores ni publicidad.",
+            privacyS1Title: "¿Qué datos se almacenan?",
+            privacyS1Text: "Solo localmente en tu dispositivo:\n• Historial de entrenamientos (fecha, duración, deporte)\n• Configuración de la app (idioma, sonido, vibración)\n\nEstos datos nunca salen de tu dispositivo.",
+            privacyS2Title: "¿Se transmiten datos?",
+            privacyS2Text: "No. La app no envía datos a servidores, no utiliza herramientas de análisis y no requiere conexión a internet.",
+            privacyS3Title: "Compras dentro de la app",
+            privacyS3Text: "Las donaciones opcionales se gestionan completamente a través de Apple In-App Purchase. No tenemos acceso a datos de pago.",
+            privacyS4Title: "Permisos",
+            privacyS4Text: "Solo Live Activity (temporizador en la pantalla de bloqueo, opcional). Sin otros permisos.",
+            privacyOpenBrowser: "Abrir versión completa en el navegador"
         ),
 
         .french: Translations(
@@ -480,7 +553,21 @@ struct Translations {
             todoEmpty: "Aucune tâche", todoEmptyDesc: "Ajoutez votre première tâche",
             donationTitle: "Soutenir le Développeur",
             donationSubtitle: "Si vous aimez l'app, j'apprécierais votre soutien 🙏",
-            donationSupport: "Soutenir", donationThankYou: "Merci beaucoup ! 🙏"
+            donationSupport: "Soutenir", donationThankYou: "Merci beaucoup ! 🙏",
+            donationUnavailable: "Produits non disponibles.\nVérifiez votre connexion internet.",
+            loading: "Chargement...", retry: "Réessayer",
+            privacyNavTitle: "Politique de confidentialité",
+            privacyDate: "Politique de confidentialité · Février 2026",
+            privacySummary: "Cette app ne stocke aucune donnée personnelle, n'envoie pas de données à des serveurs et n'utilise aucun traceur ni publicité.",
+            privacyS1Title: "Quelles données sont stockées ?",
+            privacyS1Text: "Uniquement en local sur votre appareil :\n• Historique d'entraînement (date, durée, sport)\n• Paramètres de l'app (langue, son, vibration)\n\nCes données ne quittent jamais votre appareil.",
+            privacyS2Title: "Des données sont-elles transmises ?",
+            privacyS2Text: "Non. L'app n'envoie aucune donnée à des serveurs, n'utilise aucun outil d'analyse et ne nécessite aucune connexion internet.",
+            privacyS3Title: "Achats intégrés",
+            privacyS3Text: "Les dons optionnels sont entièrement traités via Apple In-App Purchase. Nous n'avons aucun accès aux données de paiement.",
+            privacyS4Title: "Autorisations",
+            privacyS4Text: "Uniquement Live Activity (minuterie sur l'écran de verrouillage, optionnel). Aucune autre autorisation.",
+            privacyOpenBrowser: "Ouvrir la version complète dans le navigateur"
         ),
 
         .russian: Translations(
@@ -528,7 +615,21 @@ struct Translations {
             todoEmpty: "Нет задач", todoEmptyDesc: "Добавьте первую задачу",
             donationTitle: "Поддержать разработчика",
             donationSubtitle: "Если тебе нравится приложение, буду рад твоей поддержке 🙏",
-            donationSupport: "Поддержать", donationThankYou: "Большое спасибо! 🙏"
+            donationSupport: "Поддержать", donationThankYou: "Большое спасибо! 🙏",
+            donationUnavailable: "Продукты недоступны.\nПроверьте подключение к интернету.",
+            loading: "Загрузка...", retry: "Повторить",
+            privacyNavTitle: "Политика конфиденциальности",
+            privacyDate: "Политика конфиденциальности · Февраль 2026",
+            privacySummary: "Приложение не хранит личные данные, не отправляет данные на серверы и не использует трекеры или рекламу.",
+            privacyS1Title: "Какие данные хранятся?",
+            privacyS1Text: "Только локально на вашем устройстве:\n• История тренировок (дата, длительность, вид спорта)\n• Настройки приложения (язык, звук, вибрация)\n\nЭти данные никогда не покидают ваше устройство.",
+            privacyS2Title: "Передаются ли данные?",
+            privacyS2Text: "Нет. Приложение не отправляет данные на серверы, не использует инструменты аналитики и не требует подключения к интернету.",
+            privacyS3Title: "Встроенные покупки",
+            privacyS3Text: "Необязательные пожертвования обрабатываются полностью через Apple In-App Purchase. У нас нет доступа к платёжным данным.",
+            privacyS4Title: "Разрешения",
+            privacyS4Text: "Только Live Activity (таймер на экране блокировки, опционально). Никаких других разрешений.",
+            privacyOpenBrowser: "Открыть полную версию в браузере"
         )
     ]
 }

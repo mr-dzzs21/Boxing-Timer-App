@@ -1,0 +1,102 @@
+{
+  "appPolicies" : {
+    "eula" : "",
+    "policies" : [
+      {
+        "locale" : "en_US",
+        "policyText" : "",
+        "policyURL" : ""
+      }
+    ]
+  },
+  "identifier" : "BC484B2C",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "11.99",
+      "familyShareable" : false,
+      "internalID" : "6759627341",
+      "localizations" : [
+        {
+          "description" : "Die größte Unterstützung für den Entwickler",
+          "displayName" : "Großes Dankeschön",
+          "locale" : "de"
+        },
+        {
+          "description" : "The biggest support for the developer",
+          "displayName" : "Big Thank You",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "tip.champion",
+      "referenceName" : "Großes Dankeschön",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "6759627088",
+      "localizations" : [
+        {
+          "description" : "Ein kleines Dankeschön für den Entwickler",
+          "displayName" : "Kleiner Kaffee",
+          "locale" : "de"
+        },
+        {
+          "description" : "A small thank you for the developer",
+          "displayName" : "Small Coffee",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "tip.coffee",
+      "referenceName" : "Kleiner Kaffee",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "2.99",
+      "familyShareable" : false,
+      "internalID" : "6759627147",
+      "localizations" : [
+        {
+          "description" : "Support one training session",
+          "displayName" : "Sponsor a Training",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "Unterstütze eine Trainingseinheit",
+          "displayName" : "Training sponsern",
+          "locale" : "de"
+        }
+      ],
+      "productID" : "tip.training",
+      "referenceName" : "Training sponsern",
+      "type" : "Consumable"
+    }
+  ],
+  "settings" : {
+    "_applicationInternalID" : "6759615674",
+    "_askToBuyEnabled" : false,
+    "_billingGracePeriodEnabled" : false,
+    "_billingIssuesEnabled" : false,
+    "_developerTeamID" : "QX7XLX2B86",
+    "_disableDialogs" : false,
+    "_failTransactionsEnabled" : false,
+    "_lastSynchronizedDate" : 793969982.81645203,
+    "_locale" : "en_US",
+    "_renewalBillingIssuesEnabled" : false,
+    "_storefront" : "USA",
+    "_storeKitErrors" : [
+
+    ],
+    "_timeRate" : 0
+  },
+  "subscriptionGroups" : [
+
+  ],
+  "version" : {
+    "major" : 4,
+    "minor" : 0
+  }
+}
