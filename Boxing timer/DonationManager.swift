@@ -38,9 +38,9 @@ class DonationManager: ObservableObject {
     // ⚠️ Diese IDs müssen in App Store Connect unter "In-App Purchases"
     // exakt so erstellt werden (Typ: Consumable)
     private let productIDs: Set<String> = [
-        "tip.coffee",    // 0,99 €  – Kleiner Kaffee
-        "tip.training",  // 2,99 €  – Training sponsern
-        "tip.champion"   // 10,99 € – Großes Dankeschön
+        "box.tip.coffee",    // 0,99 €  – Kleiner Kaffee
+        "box.tip.training",  // 2,99 €  – Training sponsern
+        "box.tip.champion"   // 11,99 € – Großes Dankeschön
     ]
 
     // Produkte vom App Store laden

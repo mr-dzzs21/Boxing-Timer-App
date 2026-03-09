@@ -701,10 +701,10 @@ struct DonationButton: View {
 
     var emoji: String {
         switch product.id {
-        case "tip.coffee":   return "☕"
-        case "tip.training": return "🥊"
-        case "tip.champion": return "🏆"
-        default:             return "💛"
+        case "box.tip.coffee":   return "☕"
+        case "box.tip.training": return "🥊"
+        case "box.tip.champion": return "🏆"
+        default:                 return "💛"
         }
     }
 

@@ -17,7 +17,7 @@
     {
       "displayPrice" : "11.99",
       "familyShareable" : false,
-      "internalID" : "6759627341",
+      "internalID" : "6760318500",
       "localizations" : [
         {
           "description" : "Die größte Unterstützung für den Entwickler",
@@ -30,14 +30,14 @@
           "locale" : "en_US"
         }
       ],
-      "productID" : "tip.champion",
+      "productID" : "box.tip.champion",
       "referenceName" : "Großes Dankeschön",
       "type" : "Consumable"
     },
     {
       "displayPrice" : "0.99",
       "familyShareable" : false,
-      "internalID" : "6759627088",
+      "internalID" : "6760318488",
       "localizations" : [
         {
           "description" : "Ein kleines Dankeschön für den Entwickler",
@@ -50,14 +50,14 @@
           "locale" : "en_US"
         }
       ],
-      "productID" : "tip.coffee",
+      "productID" : "box.tip.coffee",
       "referenceName" : "Kleiner Kaffee",
       "type" : "Consumable"
     },
     {
       "displayPrice" : "2.99",
       "familyShareable" : false,
-      "internalID" : "6759627147",
+      "internalID" : "6760318519",
       "localizations" : [
         {
           "description" : "Support one training session",
@@ -70,7 +70,7 @@
           "locale" : "de"
         }
       ],
-      "productID" : "tip.training",
+      "productID" : "box.tip.training",
       "referenceName" : "Training sponsern",
       "type" : "Consumable"
     }
