@@ -134,6 +134,11 @@ class SoundManager {
     // "shared" = Singleton: es gibt nur eine Instanz in der ganzen App
     static let shared = SoundManager()
 
+    init() {
+        try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+        try? AVAudioSession.sharedInstance().setActive(true)
+    }
+
     enum SoundType {
         case roundStart
         case roundEnd
