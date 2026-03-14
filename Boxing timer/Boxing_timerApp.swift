@@ -59,11 +59,14 @@ struct MainTabView: View {
             TodoView()
                 .tabItem { Label(lang.t.tabTodos, systemImage: "checkmark.circle") }
 
-            HistoryView()
-                .tabItem { Label(lang.t.tabHistory, systemImage: "clock.arrow.circlepath") }
-
             StatsView()
                 .tabItem { Label(lang.t.tabStats, systemImage: "chart.bar.fill") }
+
+            StopwatchView()
+                .tabItem { Label(lang.t.tabStopwatch, systemImage: "stopwatch") }
+
+            HistoryView()
+                .tabItem { Label(lang.t.tabHistory, systemImage: "clock.arrow.circlepath") }
         }
         .onAppear {
             promptManager.checkDonationPrompt()

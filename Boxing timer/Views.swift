@@ -7,6 +7,7 @@ import SwiftUI
 import CoreData
 import StoreKit
 import UserNotifications
+import Combine
 
 // MARK: - Interval Timer View
 struct IntervalTimerView: View {
@@ -855,6 +856,125 @@ struct SettingsView: View {
         }
         .sheet(isPresented: $showDonation) {
             DonationView()
+        }
+    }
+}
+
+// MARK: - Stopwatch View
+class StopwatchViewModel: ObservableObject {
+    @Published var elapsed: TimeInterval = 0
+    @Published var laps: [TimeInterval] = []
+    @Published var isRunning = false
+
+    private var timer: Timer?
+    private var startTime: Date?
+    private var accumulated: TimeInterval = 0
+    private var lapStart: TimeInterval = 0
+
+    func startStop() {
+        if isRunning {
+            accumulated = elapsed
+            timer?.invalidate()
+            timer = nil
+        } else {
+            startTime = Date()
+            timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { [weak self] _ in
+                guard let self, let start = self.startTime else { return }
+                self.elapsed = self.accumulated + Date().timeIntervalSince(start)
+            }
+        }
+        isRunning.toggle()
+    }
+
+    func lap() {
+        let lapTime = elapsed - lapStart
+        laps.insert(lapTime, at: 0)
+        lapStart = elapsed
+    }
+
+    func reset() {
+        timer?.invalidate()
+        timer = nil
+        elapsed = 0
+        accumulated = 0
+        lapStart = 0
+        laps = []
+        isRunning = false
+        startTime = nil
+    }
+
+    func formatted(_ t: TimeInterval) -> String {
+        let min = Int(t) / 60
+        let sec = Int(t) % 60
+        let cs  = Int((t * 100).truncatingRemainder(dividingBy: 100))
+        return String(format: "%02d:%02d.%02d", min, sec, cs)
+    }
+}
+
+struct StopwatchView: View {
+    @EnvironmentObject var lang: LanguageManager
+    @StateObject private var vm = StopwatchViewModel()
+
+    var body: some View {
+        NavigationStack {
+            VStack(spacing: 0) {
+
+                // Zeit-Anzeige
+                Text(vm.formatted(vm.elapsed))
+                    .font(.system(size: 72, weight: .thin, design: .monospaced))
+                    .padding(.top, 60)
+                    .padding(.bottom, 40)
+
+                // Buttons
+                HStack(spacing: 40) {
+                    // Lap / Reset Button
+                    Button {
+                        if vm.isRunning { vm.lap() } else { vm.reset() }
+                    } label: {
+                        Text(vm.isRunning ? lang.t.stopwatchLap : lang.t.stopwatchReset)
+                            .font(.headline)
+                            .foregroundColor(.primary)
+                            .frame(width: 80, height: 80)
+                            .background(Color(.systemGray5))
+                            .clipShape(Circle())
+                    }
+                    .disabled(!vm.isRunning && vm.elapsed == 0)
+
+                    // Start / Stop Button
+                    Button {
+                        vm.startStop()
+                    } label: {
+                        Text(vm.isRunning ? lang.t.stopwatchStop : lang.t.stopwatchStart)
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .frame(width: 80, height: 80)
+                            .background(vm.isRunning ? Color.red : Color.green)
+                            .clipShape(Circle())
+                    }
+                }
+                .padding(.bottom, 40)
+
+                // Runden-Liste
+                if !vm.laps.isEmpty {
+                    Divider()
+                    List {
+                        ForEach(Array(vm.laps.enumerated()), id: \.offset) { index, lap in
+                            HStack {
+                                Text("\(lang.t.stopwatchLap) \(vm.laps.count - index)")
+                                    .foregroundColor(.secondary)
+                                Spacer()
+                                Text(vm.formatted(lap))
+                                    .font(.system(.body, design: .monospaced))
+                            }
+                        }
+                    }
+                    .listStyle(.plain)
+                }
+
+                Spacer()
+            }
+            .navigationTitle(lang.t.stopwatchTitle)
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }

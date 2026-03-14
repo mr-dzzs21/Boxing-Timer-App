@@ -201,6 +201,15 @@ struct Translations {
     let onboarding4Title: String
     let onboarding4Text: String
 
+    // Stoppuhr
+    let tabStopwatch: String
+    let stopwatchTitle: String
+    let stopwatchLap: String
+    let stopwatchReset: String
+    let stopwatchStart: String
+    let stopwatchStop: String
+    let stopwatchLaps: String
+
     // Todos
     let tabTodos: String
     let todosTitle: String
@@ -301,6 +310,9 @@ struct Translations {
             onboarding2Title: "Fight Timer", onboarding2Text: "Presets für Boxen, MMA, K1, Muay Thai und mehr. Einfach auswählen und loslegen.",
             onboarding3Title: "Interval Training", onboarding3Text: "Intensives HIIT Training für Laufen, AirBike, Sandsack und mehr. Auch komplett anpassbar.",
             onboarding4Title: "Fortschritt tracken", onboarding4Text: "Alle Workouts werden gespeichert. Verfolge deinen Fortschritt in History und Statistiken.",
+            tabStopwatch: "Stoppuhr", stopwatchTitle: "Stoppuhr", stopwatchLap: "Runde",
+            stopwatchReset: "Reset", stopwatchStart: "Start", stopwatchStop: "Stop",
+            stopwatchLaps: "Runden",
             tabTodos: "Todos", todosTitle: "Meine Todos", todoAdd: "Hinzufügen",
             todoPlaceholder: "Neues Todo...", todoOpen: "Offen", todoDone: "Erledigt",
             todoEmpty: "Keine Todos", todoEmptyDesc: "Füge dein erstes Todo hinzu",
@@ -364,6 +376,9 @@ struct Translations {
             onboarding2Title: "Fight Timer", onboarding2Text: "Presets for Boxing, MMA, K1, Muay Thai and more. Just select and start.",
             onboarding3Title: "Interval Training", onboarding3Text: "Intense HIIT training for running, air bike, bag work and more. Fully customizable.",
             onboarding4Title: "Track Progress", onboarding4Text: "All workouts are saved. Follow your progress in History and Statistics.",
+            tabStopwatch: "Stopwatch", stopwatchTitle: "Stopwatch", stopwatchLap: "Lap",
+            stopwatchReset: "Reset", stopwatchStart: "Start", stopwatchStop: "Stop",
+            stopwatchLaps: "Laps",
             tabTodos: "Todos", todosTitle: "My Todos", todoAdd: "Add",
             todoPlaceholder: "New todo...", todoOpen: "Open", todoDone: "Done",
             todoEmpty: "No Todos", todoEmptyDesc: "Add your first todo",
@@ -427,6 +442,9 @@ struct Translations {
             onboarding2Title: "مؤقت القتال", onboarding2Text: "إعدادات مسبقة للملاكمة وMMA وK1 والمواي تاي والمزيد.",
             onboarding3Title: "تدريب الفترات", onboarding3Text: "تدريب HIIT مكثف للجري والدراجة الهوائية وكيس الملاكمة والمزيد.",
             onboarding4Title: "تتبع التقدم", onboarding4Text: "يتم حفظ جميع التمارين. تابع تقدمك في السجل والإحصاءات.",
+            tabStopwatch: "الساعة", stopwatchTitle: "ساعة إيقاف", stopwatchLap: "دورة",
+            stopwatchReset: "إعادة", stopwatchStart: "ابدأ", stopwatchStop: "وقف",
+            stopwatchLaps: "الدورات",
             tabTodos: "مهام", todosTitle: "مهامي", todoAdd: "إضافة",
             todoPlaceholder: "مهمة جديدة...", todoOpen: "مفتوح", todoDone: "منجز",
             todoEmpty: "لا توجد مهام", todoEmptyDesc: "أضف مهمتك الأولى",
@@ -490,6 +508,9 @@ struct Translations {
             onboarding2Title: "Cronómetro", onboarding2Text: "Ajustes para Boxeo, MMA, K1, Muay Thai y más. Solo selecciona y empieza.",
             onboarding3Title: "Entrenamiento por Intervalos", onboarding3Text: "Entrenamiento HIIT intenso para correr, bicicleta y saco de boxeo. Totalmente personalizable.",
             onboarding4Title: "Seguir el Progreso", onboarding4Text: "Todos los entrenamientos se guardan. Sigue tu progreso en Historial y Estadísticas.",
+            tabStopwatch: "Cronómetro", stopwatchTitle: "Cronómetro", stopwatchLap: "Vuelta",
+            stopwatchReset: "Reiniciar", stopwatchStart: "Iniciar", stopwatchStop: "Parar",
+            stopwatchLaps: "Vueltas",
             tabTodos: "Tareas", todosTitle: "Mis Tareas", todoAdd: "Añadir",
             todoPlaceholder: "Nueva tarea...", todoOpen: "Pendiente", todoDone: "Hecho",
             todoEmpty: "Sin tareas", todoEmptyDesc: "Añade tu primera tarea",
@@ -553,6 +574,9 @@ struct Translations {
             onboarding2Title: "Chrono Combat", onboarding2Text: "Préréglages pour Boxe, MMA, K1, Muay Thai et plus. Sélectionnez et démarrez.",
             onboarding3Title: "Entraînement Intervalles", onboarding3Text: "Entraînement HIIT intense pour course, vélo et sac de frappe. Entièrement personnalisable.",
             onboarding4Title: "Suivre la Progression", onboarding4Text: "Tous les entraînements sont sauvegardés. Suivez votre progression dans Historique et Statistiques.",
+            tabStopwatch: "Chronomètre", stopwatchTitle: "Chronomètre", stopwatchLap: "Tour",
+            stopwatchReset: "Réinitialiser", stopwatchStart: "Démarrer", stopwatchStop: "Arrêter",
+            stopwatchLaps: "Tours",
             tabTodos: "Tâches", todosTitle: "Mes Tâches", todoAdd: "Ajouter",
             todoPlaceholder: "Nouvelle tâche...", todoOpen: "En cours", todoDone: "Terminé",
             todoEmpty: "Aucune tâche", todoEmptyDesc: "Ajoutez votre première tâche",
@@ -616,6 +640,9 @@ struct Translations {
             onboarding2Title: "Таймер Боя", onboarding2Text: "Пресеты для бокса, MMA, K1, муай-тай и других видов спорта.",
             onboarding3Title: "Интервальная Тренировка", onboarding3Text: "Интенсивный HIIT для бега, велотренажёра, груши и многого другого.",
             onboarding4Title: "Отслеживай Прогресс", onboarding4Text: "Все тренировки сохраняются. Следи за прогрессом в истории и статистике.",
+            tabStopwatch: "Секундомер", stopwatchTitle: "Секундомер", stopwatchLap: "Круг",
+            stopwatchReset: "Сброс", stopwatchStart: "Старт", stopwatchStop: "Стоп",
+            stopwatchLaps: "Круги",
             tabTodos: "Задачи", todosTitle: "Мои задачи", todoAdd: "Добавить",
             todoPlaceholder: "Новая задача...", todoOpen: "Открытые", todoDone: "Выполнено",
             todoEmpty: "Нет задач", todoEmptyDesc: "Добавьте первую задачу",
