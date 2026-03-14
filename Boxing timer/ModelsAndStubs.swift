@@ -182,8 +182,8 @@ class SoundManager {
 
         // Warning-Sound läuft auf separatem Player
         if type == .roundWarning {
-            guard let warnUrl = Bundle.main.url(forResource: "knock-sound", withExtension: "mp3") else {
-                print("knock-sound.mp3 nicht gefunden")
+            guard let warnUrl = Bundle.main.url(forResource: "warning10sec", withExtension: "mp3") else {
+                print("warning10sec.mp3 nicht gefunden")
                 return
             }
             do {
